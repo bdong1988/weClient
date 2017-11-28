@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { BrowseModule } from './browse/browse.module';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import { BrowseModule } from './browse/browse.module';
     BrowserModule,
     CoreModule,
     BrowseModule,
+    FlexLayoutModule,
     AppRoutingModule
   ],
   providers: [],

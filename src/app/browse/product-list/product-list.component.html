@@ -1,6 +1,6 @@
 <div fxFlex fxLayout="column">
-  <div fxFlex fxFlexFill fxFlexAlign="center" *ngFor="let product of products" [routerLink]="['../detail', product.ID]">
-    <mat-card class="productContainer" fxLayout="row">
+  <div fxFlex fxFlexFill fxFlexAlign="center" *ngFor="let product of products" [routerLink]="['/browse/products', product.ID]">
+    <div class="productContainer" fxLayout="row" class="item-container">
       <img class="productImg" [src]="product.Picture1" [alt]="product.Title" fxFlex="50%">
       <div fxFlex="1 1 auto" fxLayout="column">
         <p fxFlex>{{product.Title}}
@@ -8,6 +8,6 @@
         </p>
         <h4 fxFlex>{{product.Price | currency:'CNY':'symbol-narrow'}}</h4>
       </div>
-    </mat-card>
+    </div>
   </div>
 </div>

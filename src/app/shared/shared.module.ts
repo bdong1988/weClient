@@ -32,6 +32,21 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatTabsModule,
     FlexLayoutModule
   ],
+  exports:[
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatToolbarModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatIconModule,
+    MatAutocompleteModule,
+    MatMenuModule,
+    MatSidenavModule,
+    MatListModule,
+    MatCardModule,
+    MatTabsModule,
+    FlexLayoutModule
+  ],
   declarations: []
 })
 export class SharedModule {

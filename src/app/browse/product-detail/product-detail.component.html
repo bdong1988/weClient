@@ -1,12 +1,17 @@
-<mat-card class="productContainer" fxLayout="row wrap">
-  <img class="productImg" [src]="product.Picture1" [alt]="product.Title" fxFlex="50%">
-  <img class="productImg" [src]="product.Picture2" [alt]="product.Title" fxFlex="50%">
-  <img class="productImg" [src]="product.Picture3" [alt]="product.Title" fxFlex="50%">
-  <img class="productImg" [src]="product.Picture4" [alt]="product.Title" fxFlex="50%">
-  <div fxFlex fxLayout="column">
-    <p fxFlex>{{product.Title}}
+<div class="productContainer" >
+  <div fxLayout="row wrap">
+    <img class="productImg" [src]="product.Picture1" [alt]="product.Title" fxFlex="50%">
+    <img class="productImg" [src]="product.Picture2" [alt]="product.Title" fxFlex="50%">
+    <img class="productImg" [src]="product.Picture3" [alt]="product.Title" fxFlex="50%">
+    <img class="productImg" [src]="product.Picture4" [alt]="product.Title" fxFlex="50%">
+  </div>
+  <div fxLayout="column">
+    <p fxFlex fxFlexFill>{{product.Title}}
       <br> {{product.Description}}
     </p>
-    <h4 fxFlex>{{product.Price | currency:'CNY':'symbol-narrow'}}</h4>
+    <h4 fxFlex fxFlexFill>{{product.Price | currency:'CNY':'symbol-narrow'}}</h4>
   </div>
-</mat-card>
+  <div fxLayout="row" fxLayoutAlign="start">
+    <button mat-raised-button color="primary">加入购物车</button>
+  </div>
+</div>
