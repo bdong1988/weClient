@@ -15,6 +15,8 @@ import {
   MatTabsModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
+import { BackToTopComponent } from './back-to-top/back-to-top.component';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -32,7 +34,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatTabsModule,
     FlexLayoutModule
   ],
-  exports:[
+  exports: [
     BrowserAnimationsModule,
     MatButtonModule,
     MatToolbarModule,
@@ -45,9 +47,12 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatListModule,
     MatCardModule,
     MatTabsModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    BackToTopComponent
   ],
-  declarations: []
+  declarations: [
+    BackToTopComponent
+  ]
 })
 export class SharedModule {
 

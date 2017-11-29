@@ -1,4 +1,4 @@
-<div fxFlex fxLayout="column">
+<div fxFlex fxLayout="column" #container id="products_wrapper" class="products_wrapper">
   <div fxFlex fxFlexFill fxFlexAlign="center" *ngFor="let product of products" [routerLink]="['/browse/products', product.ID]">
     <div class="productContainer" fxLayout="row" class="item-container">
       <img class="productImg" [src]="product.Picture1" [alt]="product.Title" fxFlex="50%">
@@ -9,5 +9,8 @@
         <h4 fxFlex>{{product.Price | currency:'CNY':'symbol-narrow'}}</h4>
       </div>
     </div>
+  </div>
+  <div class="app-back-to-top-wrapper">
+    <app-back-to-top [container]="container"></app-back-to-top>
   </div>
 </div>

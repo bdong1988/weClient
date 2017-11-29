@@ -1,5 +1,3 @@
 <mat-toolbar color="primary" fxLayout="row" fxLayoutAlign="center">
-  <mat-icon class="nav-icon" fxFlex>home</mat-icon>
-  <mat-icon class="nav-icon" fxFlex>shopping_cart</mat-icon>
-  <mat-icon class="nav-icon" fxFlex>face</mat-icon>
+  <mat-icon *ngFor="let link of navLinks" [routerLink]="link.path" class="nav-icon" fxFlex>{{link.icon}}</mat-icon>
 </mat-toolbar>

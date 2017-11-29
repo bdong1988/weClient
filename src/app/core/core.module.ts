@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 
 import { ProductService } from './product.service';
 import { SharedModule } from '../shared/shared.module';
@@ -13,7 +14,8 @@ import { TopBarComponent } from './top-bar/top-bar.component';
     CommonModule,
     HttpModule,
     SharedModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule
   ],
   exports:[
     BottomNavBarComponent,
