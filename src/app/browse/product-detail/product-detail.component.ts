@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
-import { Location } from '@angular/common';
 import { Observable } from 'rxjs/Observable';
 import { filter, switchMap } from 'rxjs/operators';
 
@@ -8,6 +7,7 @@ import 'rxjs/add/operator/switchMap';
 
 import { Product } from '../../shared/product';
 import { ProductService } from '../../core/product.service';
+import { ShoppingCartService } from '../../core/shopping-cart.service';
 
 @Component({
   selector: 'app-product-detail',
@@ -19,8 +19,8 @@ export class ProductDetailComponent implements OnInit {
 
   constructor(
     private productService: ProductService,
-    private route: ActivatedRoute,
-    private location: Location
+    private shoppingCartService: ShoppingCartService,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
@@ -33,6 +33,17 @@ export class ProductDetailComponent implements OnInit {
       data => {
         this.product = data;
       }
+    );
+  }
+
+  onAddtoCartClick(): void {
+    this.shoppingCartService.addToCart(
+      this.product.ProductID,
+      this.product.Title,
+      this.product.Description,
+      this.product.Picture1,
+      this.product.Price,
+      1
     );
   }
 }

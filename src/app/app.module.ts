@@ -6,7 +6,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { BrowseModule } from './browse/browse.module';
+import { CartModule } from './cart/cart.module';
+import { UserModule } from './user/user.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
+
 
 
 @NgModule({
@@ -15,6 +18,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
   ],
   imports: [
     BrowserModule,
+    CartModule,
+    UserModule,
     CoreModule,
     BrowseModule,
     FlexLayoutModule,
