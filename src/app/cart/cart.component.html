@@ -6,8 +6,10 @@
         <p fxFlex>{{commodity.title}}
           <br> {{commodity.description}}
         </p>
-        <h4 fxFlex class="price">{{commodity.price | currency:'CNY':'symbol-narrow'}}</h4>
-        <app-item-count fxFlex fxFlexFill [count]="commodity.count "></app-item-count>
+        <div fxFlex fxLayout="row">
+          <h4 fxFlex="50%" class="price">{{commodity.price | currency:'CNY':'symbol-narrow'}}</h4>
+          <app-item-count fxFlex="50%" [count]="commodity.count "></app-item-count>
+        </div>
       </div>
     </div>
   </div>

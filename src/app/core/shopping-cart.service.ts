@@ -7,7 +7,7 @@ export class ShoppingCartService {
     {
       id: 1,
       title: 'iphonex',
-      description: '史上最NB IPhone, 支持脸部识别, 全面屏',
+      description: '史上最NB IPhone, 支持脸部识别, 全面屏,史上最NB IPhone, 支持脸部识别, 全面屏,史上最NB IPhone, 支持脸部识别, 全面屏,史上最NB IPhone, 支持脸部识别, 全面屏',
       img: './assets/img/product.jpg',
       price: 8888,
       count: 1
@@ -15,7 +15,7 @@ export class ShoppingCartService {
     {
       id: 2,
       title: 'iphonex',
-      description: '史上最NB IPhone, 支持脸部识别, 全面屏',
+      description: '史上最NB IPhone, 支持脸部识别, 全面屏,史上最NB IPhone, 支持脸部识别, 全面屏,史上最NB IPhone, 支持脸部识别, 全面屏,史上最NB IPhone, 支持脸部识别, 全面屏',
       img: './assets/img/product.jpg',
       price: 8888,
       count: 2
@@ -23,7 +23,7 @@ export class ShoppingCartService {
     {
       id: 3,
       title: 'iphonex',
-      description: '史上最NB IPhone, 支持脸部识别, 全面屏',
+      description: '史上最NB IPhone, 支持脸部识别, 全面屏,史上最NB IPhone, 支持脸部识别, 全面屏,史上最NB IPhone, 支持脸部识别, 全面屏,史上最NB IPhone, 支持脸部识别, 全面屏',
       img: './assets/img/product.jpg',
       price: 8888,
       count: 3
@@ -31,7 +31,7 @@ export class ShoppingCartService {
     {
       id: 4,
       title: 'iphonex',
-      description: '史上最NB IPhone, 支持脸部识别, 全面屏',
+      description: '史上最NB IPhone, 支持脸部识别, 全面屏,史上最NB IPhone, 支持脸部识别, 全面屏,史上最NB IPhone, 支持脸部识别, 全面屏,史上最NB IPhone, 支持脸部识别, 全面屏',
       img: './assets/img/product.jpg',
       price: 8888,
       count: 3
@@ -39,7 +39,7 @@ export class ShoppingCartService {
     {
       id: 5,
       title: 'iphonex',
-      description: '史上最NB IPhone, 支持脸部识别, 全面屏',
+      description: '史上最NB IPhone, 支持脸部识别, 全面屏,史上最NB IPhone, 支持脸部识别, 全面屏,史上最NB IPhone, 支持脸部识别, 全面屏,史上最NB IPhone, 支持脸部识别, 全面屏',
       img: './assets/img/product.jpg',
       price: 8888,
       count: 3
@@ -47,7 +47,7 @@ export class ShoppingCartService {
     {
       id: 6,
       title: 'iphonex',
-      description: '史上最NB IPhone, 支持脸部识别, 全面屏',
+      description: '史上最NB IPhone, 支持脸部识别, 全面屏,史上最NB IPhone, 支持脸部识别, 全面屏,史上最NB IPhone, 支持脸部识别, 全面屏,史上最NB IPhone, 支持脸部识别, 全面屏',
       img: './assets/img/product.jpg',
       price: 8888,
       count: 3
