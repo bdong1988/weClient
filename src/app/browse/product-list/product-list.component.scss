@@ -4,7 +4,8 @@
 }
 
 .products_wrapper{
-  overflow-x: hidden;
+  height: 100%;
+  overflow-x: wrap;
   overflow-y: auto;
 }
 

@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -15,9 +16,11 @@ import {
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { BackToTopComponent } from './back-to-top/back-to-top.component';
+import { ItemCountComponent } from './item-count/item-count.component';
 
 @NgModule({
   imports: [
+    FormsModule,
     BrowserAnimationsModule,
     MatButtonModule,
     MatToolbarModule,
@@ -45,10 +48,12 @@ import { BackToTopComponent } from './back-to-top/back-to-top.component';
     MatCardModule,
     MatTabsModule,
     FlexLayoutModule,
-    BackToTopComponent
+    BackToTopComponent,
+    ItemCountComponent
   ],
   declarations: [
-    BackToTopComponent
+    BackToTopComponent,
+    ItemCountComponent
   ]
 })
 export class SharedModule {

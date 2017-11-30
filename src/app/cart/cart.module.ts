@@ -3,13 +3,13 @@ import { CommonModule } from '@angular/common';
 
 import { CartRoutingModule } from './cart-routing.module';
 import { CartComponent } from './cart.component';
-import { FlexLayoutModule } from '@angular/flex-layout';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
     CartRoutingModule,
-    FlexLayoutModule
+    SharedModule
   ],
   declarations: [
     CartComponent
