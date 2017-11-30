@@ -1,15 +1,15 @@
-<div fxLayout="column" #container  class="commodities_wrapper">
-  <div *ngFor="let commodity of commodities" fxFlex fxFlexFill fxFlexAlign="center" >
+<div fxLayout="column" #container class="commodities_wrapper">
+  <div *ngFor="let commodity of commodities" fxFlex fxFlexAlign="center">
     <div fxLayout="row" class="item-container">
       <img class="commodityImg" [src]="commodity.img" [alt]="commodity.title" fxFlex="50%">
       <div fxFlex fxLayout="column">
-        <p fxFlex>{{commodity.title}}
-          <br> {{commodity.description}}
+        <p fxFlex="nogrow">
+          {{commodity.title}}
+          <br> 
+          {{commodity.description}}
         </p>
-        <div fxFlex fxLayout="row">
-          <h4 fxFlex="50%" class="price">{{commodity.price | currency:'CNY':'symbol-narrow'}}</h4>
-          <app-item-count fxFlex="50%" [count]="commodity.count "></app-item-count>
-        </div>
+        <h4>{{commodity.price | currency:'CNY':'symbol-narrow'}}</h4>
+        <app-item-count [count]="commodity.count "></app-item-count>
       </div>
     </div>
   </div>

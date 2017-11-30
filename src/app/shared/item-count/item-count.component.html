@@ -1,5 +1,9 @@
-<div class="container">
-  <button color="primary" class="add-button" (click)="onAddClick()">+</button>
-  <input class="count-input" [(ngModel)]="count">
-  <button color="primary"class="minus-button" (click)="onMinusClick()">-</button>
+<div fxLayout="row" class="container">
+  <button mat-icon-button (click)="onAddClick()" color="primary" fxFlex="none">
+    <mat-icon aria-label="add">add</mat-icon>
+  </button>
+  <input matInput fxFlex="0 1 40" [(ngModel)]="count">
+  <button mat-icon-button (click)="onMinusClick()" color="primary" fxFlex="none">
+    <mat-icon aria-label="remove">remove</mat-icon>
+  </button>
 </div>
