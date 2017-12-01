@@ -1,6 +1,6 @@
 <div fxLayout="column" class="wrapper">
   <div fxFlex="grow" #container fxLayout="column" class="commodities_wrapper">
-    <div *ngFor="let commodity of commodities" fxFlex fxFlexAlign="center">
+    <div *ngFor="let commodity of commodities" fxFlex="nogrow" fxFlexAlign="center">
       <div fxLayout="row" fxLayoutAlign="space-between center" class="item-container">
         <mat-checkbox fxFlex="none" color="primary"></mat-checkbox>
         <img class="commodityImg" [src]="commodity.img" [alt]="commodity.title" fxFlex="33%">
@@ -21,7 +21,7 @@
     </div>
   </div>
   <mat-toolbar fxFlex="none" fxLayout="row" fxLayoutAlign="space-between center">
-    <p>合计：{{2000 | currency:'CNY':'symbol-narrow'}}</p>
+    <p>合计：{{getTotalAmount() | currency:'CNY':'symbol-narrow'}}</p>
     <button mat-button fxFlex="grow" color="warn">删除</button>
     <button mat-button fxFlex="grow" color="warn">去结算</button>
   </mat-toolbar>

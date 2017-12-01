@@ -18,4 +18,8 @@ export class CartComponent implements OnInit {
     this.commodities = this.shoppingCartService.getCommodities();
   }
 
+  getTotalAmount(): number {
+    return this.shoppingCartService.getTotalAmount();
+  }
+
 }

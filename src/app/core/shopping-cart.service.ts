@@ -58,6 +58,14 @@ export class ShoppingCartService {
     return this.commodities;
   }
 
+  getTotalAmount(): number {
+    let amount = 0;
+    for (let i = 0; i < this.commodities.length; i++) {
+      amount += this.commodities[i].price * this.commodities[i].count;
+    }
+    return amount;
+  }
+
   clearCart(): void {
     this.commodities = [];
   }
