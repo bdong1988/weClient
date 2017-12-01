@@ -1,19 +1,27 @@
-<div fxLayout="column" #container class="commodities_wrapper">
-  <div *ngFor="let commodity of commodities" fxFlex fxFlexAlign="center">
-    <div fxLayout="row" class="item-container">
-      <img class="commodityImg" [src]="commodity.img" [alt]="commodity.title" fxFlex="50%">
-      <div fxFlex fxLayout="column">
-        <p fxFlex="nogrow">
-          {{commodity.title}}
-          <br> 
-          {{commodity.description}}
-        </p>
-        <h4>{{commodity.price | currency:'CNY':'symbol-narrow'}}</h4>
-        <app-item-count [count]="commodity.count "></app-item-count>
+<div fxLayout="column" class="wrapper">
+  <div fxFlex="grow" #container fxLayout="column" class="commodities_wrapper">
+    <div *ngFor="let commodity of commodities" fxFlex fxFlexAlign="center">
+      <div fxLayout="row" class="item-container">
+        <img class="commodityImg" [src]="commodity.img" [alt]="commodity.title" fxFlex="33%">
+        <div fxFlex fxLayout="column">
+          <p fxFlex="nogrow">
+            {{commodity.title}}
+            <br> {{commodity.description}}
+          </p>
+          <div fxFlex="nogrow" fxLayout="row" fxLayoutAlign="space-between">
+            <h4 fxFlex="nogrow" class="price">{{commodity.price | currency:'CNY':'symbol-narrow'}}</h4>
+            <app-item-count fxFlex="nogrow" [count]="commodity.count "></app-item-count>
+          </div>
+        </div>
       </div>
     </div>
+    <div class="app-back-to-top-wrapper">
+      <app-back-to-top [container]="container"></app-back-to-top>
+    </div>
   </div>
-  <div class="app-back-to-top-wrapper">
-    <app-back-to-top [container]="container"></app-back-to-top>
-  </div>
+  <mat-toolbar fxFlex="none" fxLayout="row">
+    <p>合计：{{2000 | currency:'CNY':'symbol-narrow'}}</p>
+    <button mat-button fxFlex="nogrow">删除</button>
+    <button mat-button fxFlex="nogrow">去结算</button>
+  </mat-toolbar>
 </div>

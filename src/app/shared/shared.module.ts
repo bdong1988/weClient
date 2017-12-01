@@ -12,7 +12,8 @@ import {
   MatSidenavModule,
   MatListModule,
   MatCardModule,
-  MatTabsModule } from '@angular/material';
+  MatTabsModule,
+  MatCheckboxModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { BackToTopComponent } from './back-to-top/back-to-top.component';
@@ -33,6 +34,7 @@ import { ItemCountComponent } from './item-count/item-count.component';
     MatListModule,
     MatCardModule,
     MatTabsModule,
+    MatCheckboxModule,
     FlexLayoutModule
   ],
   exports: [
@@ -47,6 +49,7 @@ import { ItemCountComponent } from './item-count/item-count.component';
     MatListModule,
     MatCardModule,
     MatTabsModule,
+    MatCheckboxModule,
     FlexLayoutModule,
     BackToTopComponent,
     ItemCountComponent

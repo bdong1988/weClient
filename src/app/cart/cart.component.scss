@@ -3,6 +3,10 @@
   height: 100%;
 }
 
+.wrapper{
+  height: 100%;
+}
+
 .commodities_wrapper{
   height: 100%;
   overflow-x: hidden;
@@ -28,5 +32,8 @@
 h4{
   -webkit-margin-before: 0em;
   -webkit-margin-after: 0em;
+}
+.price{
+  padding-top: 5px;
 }
 
