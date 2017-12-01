@@ -42,8 +42,7 @@ export class ProductDetailComponent implements OnInit {
       this.product.Title,
       this.product.Description,
       this.product.Picture1,
-      this.product.Price,
-      1
+      this.product.Price
     );
   }
 }
