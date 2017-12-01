@@ -1,15 +1,16 @@
 <div fxLayout="column" class="wrapper">
   <div fxFlex="grow" #container fxLayout="column" class="commodities_wrapper">
     <div *ngFor="let commodity of commodities" fxFlex fxFlexAlign="center">
-      <div fxLayout="row" class="item-container">
+      <div fxLayout="row" fxLayoutAlign="space-between center" class="item-container">
+        <mat-checkbox fxFlex="none"></mat-checkbox>
         <img class="commodityImg" [src]="commodity.img" [alt]="commodity.title" fxFlex="33%">
         <div fxFlex fxLayout="column">
           <p fxFlex="nogrow">
             {{commodity.title}}
             <br> {{commodity.description}}
           </p>
-          <div fxFlex="nogrow" fxLayout="row" fxLayoutAlign="space-between">
-            <h4 fxFlex="nogrow" class="price">{{commodity.price | currency:'CNY':'symbol-narrow'}}</h4>
+          <div fxFlex="nogrow" fxLayout="row" fxLayoutAlign="space-between center">
+            <h4 fxFlex="nogrow" >{{commodity.price | currency:'CNY':'symbol-narrow'}}</h4>
             <app-item-count fxFlex="nogrow" [count]="commodity.count "></app-item-count>
           </div>
         </div>
@@ -19,9 +20,9 @@
       <app-back-to-top [container]="container"></app-back-to-top>
     </div>
   </div>
-  <mat-toolbar fxFlex="none" fxLayout="row">
+  <mat-toolbar fxFlex="none" fxLayout="row" fxLayoutAlign="space-between center">
     <p>合计：{{2000 | currency:'CNY':'symbol-narrow'}}</p>
-    <button mat-button fxFlex="nogrow">删除</button>
-    <button mat-button fxFlex="nogrow">去结算</button>
+    <button mat-button fxFlex="nogrow" color="warn">删除</button>
+    <button mat-button fxFlex="nogrow" color="warn">去结算</button>
   </mat-toolbar>
 </div>
