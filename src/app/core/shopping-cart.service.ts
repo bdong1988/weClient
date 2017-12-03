@@ -11,9 +11,9 @@ export class ShoppingCartService {
     description: '史上最NB IPhone, 支持脸部识别',
     img: './assets/img/IphoneX_1.jpg',
     price: 8888,
-    count: 1
-  }
-  ];
+    count: 1,
+    selected: true
+  }];
   constructor() { }
 
   addToCart(
@@ -25,7 +25,6 @@ export class ShoppingCartService {
     let bFind = false;
     for (let i = 0; i < this.commodities.length; i++) {
       if (this.commodities[i].id === product_id) {
-        this.commodities[i].count += 1;
         bFind = true;
         break;
       }
@@ -38,18 +37,19 @@ export class ShoppingCartService {
         description: product_description,
         img: product_img,
         price: product_price,
-        count: 1
+        count: 1,
+        selected: true
       };
       this.commodities.push(commodity);
     }
 
   }
 
-  removeFromChart(id: number): void {
-    for (let i = 0; i < this.commodities.length; i++) {
-      if (this.commodities[i].id === id) {
+  removeUnselectedCommodity(): void {
+    let i = this.commodities.length;
+    while (i--) {
+      if (this.commodities[i] && this.commodities[i].selected) {
         this.commodities.splice(i, 1);
-        break;
       }
     }
   }
@@ -61,6 +61,9 @@ export class ShoppingCartService {
   getTotalAmount(): number {
     let amount = 0;
     for (let i = 0; i < this.commodities.length; i++) {
+      if (!this.commodities[i].selected) {
+        continue;
+      }
       amount += this.commodities[i].price * this.commodities[i].count;
     }
     return amount;

@@ -9,17 +9,24 @@ import { ShoppingCartService } from '../core/shopping-cart.service';
 })
 export class CartComponent implements OnInit {
   commodities: Commodity[];
+
   constructor(private shoppingCartService: ShoppingCartService) {
-    console.log('cart construct');
   }
 
   ngOnInit() {
-    console.log('cart oninit');
     this.commodities = this.shoppingCartService.getCommodities();
   }
 
   getTotalAmount(): number {
     return this.shoppingCartService.getTotalAmount();
+  }
+
+  onRemoveClick(): void {
+    this.shoppingCartService.removeUnselectedCommodity();
+  }
+
+  onSettleClick(): void {
+
   }
 
 }

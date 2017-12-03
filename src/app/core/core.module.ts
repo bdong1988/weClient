@@ -6,9 +6,12 @@ import { RouterModule } from '@angular/router';
 
 import { ProductService } from './product.service';
 import { ShoppingCartService } from './shopping-cart.service';
+import { AuthenticationService } from './authentication.service';
+
 import { SharedModule } from '../shared/shared.module';
 import { BottomNavBarComponent } from './bottom-nav-bar/bottom-nav-bar.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
+import { LoginDialogComponent } from './login-dialog/login-dialog.component';
 
 @NgModule({
   imports: [
@@ -20,15 +23,18 @@ import { TopBarComponent } from './top-bar/top-bar.component';
   ],
   exports: [
     BottomNavBarComponent,
-    TopBarComponent
+    TopBarComponent,
+    LoginDialogComponent
   ],
   declarations: [
     BottomNavBarComponent,
-    TopBarComponent
+    TopBarComponent,
+    LoginDialogComponent
   ],
   providers: [
     ProductService,
-    ShoppingCartService
+    ShoppingCartService,
+    AuthenticationService
   ]
 })
 export class CoreModule { }

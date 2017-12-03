@@ -1,7 +1,16 @@
+:host{
+  height: 100%;
+  display: block;
+}
+
 .productImg{
   width: 100%;
   height: 100%;
+  padding: 5px;
 }
 .productContainer{
+  height: 100%;
   padding: 5px 5px 5px 5px;
+  overflow-x: wrap;
+  overflow-y: auto;
 }

@@ -5,4 +5,5 @@ export class Commodity {
   img: string;
   price: number;
   count: number;
+  selected: boolean;
 }

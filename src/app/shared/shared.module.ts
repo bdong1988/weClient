@@ -38,6 +38,7 @@ import { ItemCountComponent } from './item-count/item-count.component';
     FlexLayoutModule
   ],
   exports: [
+    FormsModule,
     MatButtonModule,
     MatToolbarModule,
     MatFormFieldModule,

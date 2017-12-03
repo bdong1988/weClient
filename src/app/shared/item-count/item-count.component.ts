@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-item-count',
@@ -7,20 +7,27 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ItemCountComponent implements OnInit {
   @Input() count = 0;
+  @Output() countChange = new EventEmitter<number>();
   constructor() { }
 
   ngOnInit() {
   }
 
   onAddClick(): void {
-    this.count += 1;
+    this.changeCount(1);
   }
 
   onMinusClick(): void {
+    this.changeCount(-1);
     if (this.count <= 0) {
       return;
     }
     this.count -= 1;
+  }
+
+  changeCount(delta: number): void {
+    this.count = Math.max(0, this.count + delta);
+    this.countChange.emit(this.count);
   }
 
 }
