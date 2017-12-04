@@ -14,6 +14,7 @@ import {
   MatCardModule,
   MatTabsModule,
   MatCheckboxModule} from '@angular/material';
+import { MatSelectModule } from '@angular/material/select';
 import { MatDialogModule } from '@angular/material/dialog';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
@@ -37,6 +38,7 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
     MatCardModule,
     MatTabsModule,
     MatCheckboxModule,
+    MatSelectModule,
     FlexLayoutModule,
     MatDialogModule
   ],
@@ -54,6 +56,7 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
     MatCardModule,
     MatTabsModule,
     MatCheckboxModule,
+    MatSelectModule,
     FlexLayoutModule,
     BackToTopComponent,
     ItemCountComponent,

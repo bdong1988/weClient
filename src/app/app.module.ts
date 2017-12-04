@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
+import { LoginModule } from './login/login.module';
 import { BrowseModule } from './browse/browse.module';
 import { CartModule } from './cart/cart.module';
 import { UserModule } from './user/user.module';
@@ -19,6 +20,7 @@ import { ConfirmDialogComponent } from './shared/confirm-dialog/confirm-dialog.c
   ],
   imports: [
     BrowserModule,
+    LoginModule,
     CartModule,
     UserModule,
     CoreModule,

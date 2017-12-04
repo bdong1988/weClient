@@ -26,7 +26,7 @@ export class CartComponent implements OnInit {
   }
 
   onRemoveClick(): void {
-    let dialogRef = this.dialog.open(ConfirmDialogComponent, {
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
       width: '250px',
       data: { title: '确定删除所有选中的商品么?' }
     });
