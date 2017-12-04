@@ -9,15 +9,15 @@ import { UserDetails } from './user-details.model';
 
 @Injectable()
 export class AuthenticationService {
-  readonly authticationUrl: string = "/mobile/api/login";
+  readonly authticationUrl: string = '/mobile/api/login';
   private _isAuthenticated: boolean = false;
   private _userDetail: UserDetails;
   constructor(private http: HttpClient) { }
 
-  login(userName: string, passWord: string): void{
-    this.http.post(this.authticationUrl,{
-      'username': userName,
-      'password': passWord
+  login(username: string, password: string): Observable<UserDetails> {
+    this.http.post(this.authticationUrl, {
+      'username': username,
+      'password': password
     }).map(data => {
     });
   }
