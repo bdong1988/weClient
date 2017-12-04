@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog, MatDialogRef } from '@angular/material';
 import { Commodity } from '../shared/commodity';
 import { ShoppingCartService } from '../core/shopping-cart.service';
+import { ConfirmDialogComponent } from '../shared/confirm-dialog/confirm-dialog.component';
+
 
 @Component({
   selector: 'app-cart',
@@ -10,7 +13,8 @@ import { ShoppingCartService } from '../core/shopping-cart.service';
 export class CartComponent implements OnInit {
   commodities: Commodity[];
 
-  constructor(private shoppingCartService: ShoppingCartService) {
+  constructor(private shoppingCartService: ShoppingCartService,
+    private dialog: MatDialog) {
   }
 
   ngOnInit() {
@@ -22,7 +26,16 @@ export class CartComponent implements OnInit {
   }
 
   onRemoveClick(): void {
-    this.shoppingCartService.removeUnselectedCommodity();
+    let dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      width: '250px',
+      data: { title: '确定删除所有选中的商品么?' }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result === 'Yes') {
+        this.shoppingCartService.removeUnselectedCommodity();
+      }
+    });
   }
 
   onSettleClick(): void {

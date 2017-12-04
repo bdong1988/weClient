@@ -11,7 +11,7 @@ import { AuthenticationService } from './authentication.service';
 import { SharedModule } from '../shared/shared.module';
 import { BottomNavBarComponent } from './bottom-nav-bar/bottom-nav-bar.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
-import { LoginDialogComponent } from './login-dialog/login-dialog.component';
+
 
 @NgModule({
   imports: [
@@ -23,13 +23,11 @@ import { LoginDialogComponent } from './login-dialog/login-dialog.component';
   ],
   exports: [
     BottomNavBarComponent,
-    TopBarComponent,
-    LoginDialogComponent
+    TopBarComponent
   ],
   declarations: [
     BottomNavBarComponent,
-    TopBarComponent,
-    LoginDialogComponent
+    TopBarComponent
   ],
   providers: [
     ProductService,

@@ -13,11 +13,13 @@ import {
   MatListModule,
   MatCardModule,
   MatTabsModule,
-  MatCheckboxModule } from '@angular/material';
+  MatCheckboxModule} from '@angular/material';
+import { MatDialogModule } from '@angular/material/dialog';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { BackToTopComponent } from './back-to-top/back-to-top.component';
 import { ItemCountComponent } from './item-count/item-count.component';
+import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 
 @NgModule({
   imports: [
@@ -35,7 +37,8 @@ import { ItemCountComponent } from './item-count/item-count.component';
     MatCardModule,
     MatTabsModule,
     MatCheckboxModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatDialogModule
   ],
   exports: [
     FormsModule,
@@ -53,11 +56,13 @@ import { ItemCountComponent } from './item-count/item-count.component';
     MatCheckboxModule,
     FlexLayoutModule,
     BackToTopComponent,
-    ItemCountComponent
+    ItemCountComponent,
+    ConfirmDialogComponent
   ],
   declarations: [
     BackToTopComponent,
-    ItemCountComponent
+    ItemCountComponent,
+    ConfirmDialogComponent
   ]
 })
 export class SharedModule {
