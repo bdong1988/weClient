@@ -6,6 +6,8 @@ import { of } from 'rxjs/observable/of';
 import 'rxjs/add/operator/map';
 
 import { UserDetails } from './user-details.model';
+import { tap } from 'rxjs/operators/tap';
+import { map } from 'rxjs/operator/map';
 
 @Injectable()
 export class AuthenticationService {
@@ -15,10 +17,16 @@ export class AuthenticationService {
   constructor(private http: HttpClient) { }
 
   login(username: string, password: string): Observable<UserDetails> {
-    this.http.post(this.authticationUrl, {
+    return this.http.post<UserDetails>(this.authticationUrl, {
       'username': username,
       'password': password
-    }).map(data => {
-    });
+    }).map(data => this.getUserDetail(data));
+  }
+  
+  getUserDetail(data: any): UserDetails {
+    this._userDetail = new UserDetails();
+    this._userDetail.name = data.data[0].UserName;
+    this._userDetail.userType = data.data[0].UserTypeID;
+    return this._userDetail;
   }
 }

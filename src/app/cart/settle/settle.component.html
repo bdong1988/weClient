@@ -1,3 +1,27 @@
-<p>
-  settle works!
-</p>
+<div fxLayout="column" class="wrapper">
+  <div fxFlex="grow" #container fxLayout="column" class="commodities_wrapper">
+    <div *ngFor="let commodity of commodities; let i=index" fxFlex="nogrow" fxFlexAlign="center">
+      <div fxLayout="row" fxLayoutAlign="space-between center" class="item-container">
+        <mat-checkbox fxFlex="none" color="primary" [(ngModel)]="commodity.selected"></mat-checkbox>
+        <img class="commodityImg" [src]="commodity.img" [alt]="commodity.title" fxFlex="33%">
+        <div fxFlex fxLayout="column">
+          <p fxFlex="nogrow">
+            {{commodity.title}}
+            <br> {{commodity.description}}
+          </p>
+          <div fxFlex="nogrow" fxLayout="row" fxLayoutAlign="space-between center">
+            <h4 fxFlex="nogrow" >{{commodity.price | currency:'CNY':'symbol-narrow'}}</h4>
+            <app-item-count fxFlex="nogrow" [(count)]="commodity.count"></app-item-count>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="app-back-to-top-wrapper">
+      <app-back-to-top [container]="container"></app-back-to-top>
+    </div>
+  </div>
+  <mat-toolbar fxFlex="none" fxLayout="row" fxLayoutAlign="space-between center">
+    <p>实付款：{{getTotalAmount() | currency:'CNY':'symbol-narrow'}}</p>
+    <button mat-button fxFlex="grow" color="warn" (click)="onClickOrder()">立即下单</button>
+  </mat-toolbar>
+</div>

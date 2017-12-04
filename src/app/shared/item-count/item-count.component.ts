@@ -11,6 +11,7 @@ export class ItemCountComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log('item count is ' + this.count);
   }
 
   onAddClick(): void {

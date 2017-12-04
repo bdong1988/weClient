@@ -1,20 +1,13 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { Commodity } from '../shared/commodity';
 import { forEach } from '@angular/router/src/utils/collection';
 
 
 @Injectable()
 export class ShoppingCartService {
-  commodities: Commodity[] = [{
-    id: 1,
-    title: 'iphonex',
-    description: '史上最NB IPhone, 支持脸部识别',
-    img: './assets/img/IphoneX_1.jpg',
-    price: 8888,
-    count: 1,
-    selected: true
-  }];
-  constructor() { }
+  commodities: Commodity[] = [];
+  constructor(private http: HttpClient) { }
 
   addToCart(
     product_id: number,
@@ -26,6 +19,7 @@ export class ShoppingCartService {
     for (let i = 0; i < this.commodities.length; i++) {
       if (this.commodities[i].id === product_id) {
         bFind = true;
+        this.commodities[i].count++;
         break;
       }
     }
@@ -71,6 +65,25 @@ export class ShoppingCartService {
 
   clearCart(): void {
     this.commodities = [];
+  }
+
+  orderCart(name: string, addr: string, tel: string){
+    const url = '/mobile/api/ordres';
+    let order = {
+      'ReceiverName': name,
+      'ReceiverAddr': addr,
+      'ReceiverTel': tel,
+      'Orders': []
+    };
+
+    for(let i = 0; i < this.commodities.length; i++){
+      order.Orders.push({
+        'SaleProductID': this.commodities[i].id,
+        'Amout': this.commodities[i].count
+      })
+    }
+
+    return this.http.post(url,order);
   }
 
 }

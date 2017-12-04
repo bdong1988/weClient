@@ -9,10 +9,14 @@ import { ShoppingCartService } from '../../core/shopping-cart.service';
 })
 export class SettleComponent implements OnInit {
   commodities : Commodity[];
+
   constructor(private shoppingCartService : ShoppingCartService) { }
 
   ngOnInit() {
     this.commodities = this.shoppingCartService.getCommodities();
+  }
+
+  onClickOrder(): void {
   }
 
 }

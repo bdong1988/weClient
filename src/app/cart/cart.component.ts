@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material';
+import { Router } from '@angular/router';
 import { Commodity } from '../shared/commodity';
 import { ShoppingCartService } from '../core/shopping-cart.service';
 import { ConfirmDialogComponent } from '../shared/confirm-dialog/confirm-dialog.component';
+import { Route } from '@angular/compiler/src/core';
 
 
 @Component({
@@ -13,7 +15,9 @@ import { ConfirmDialogComponent } from '../shared/confirm-dialog/confirm-dialog.
 export class CartComponent implements OnInit {
   commodities: Commodity[];
 
-  constructor(private shoppingCartService: ShoppingCartService,
+  constructor(
+    private shoppingCartService: ShoppingCartService,
+    private router: Router,
     private dialog: MatDialog) {
   }
 
@@ -39,7 +43,6 @@ export class CartComponent implements OnInit {
   }
 
   onSettleClick(): void {
-
+    this.router.navigate(['cart/settle']);
   }
-
 }
