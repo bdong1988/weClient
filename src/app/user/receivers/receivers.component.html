@@ -1,3 +1,7 @@
-<p>
-  receivers works!
-</p>
+<div fxLayout="column">
+  <div fxFlex="nogrow" fxLayout="row" *ngFor="let receiver of receivers; let i=index">
+    <h4 fxFlex="33%">{{receiver.name}}</h4>
+    <h4 fxFlex="66%">{{receiver.tel}}</h4>
+    <h4 fxFlex>{{receiver.addr}}</h4>
+  </div>
+</div>

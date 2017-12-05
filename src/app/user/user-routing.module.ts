@@ -6,10 +6,19 @@ import { ReceiversComponent } from './receivers/receivers.component';
 
 
 const routes: Routes = [
-  {path: 'user', component: UserComponent},
-  {path: 'user/orders', component: OrdersComponent},
-  {path: 'user/receivers', component: ReceiversComponent}
+  {
+    path: 'user',
+    component: UserComponent,
+    children: [{
+      path: 'orders',
+      component: OrdersComponent
+    }, {
+      path: 'receivers',
+      component: ReceiversComponent
+    }]
+  }
 ];
+
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

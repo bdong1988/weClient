@@ -6,7 +6,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./top-bar.component.scss']
 })
 export class TopBarComponent implements OnInit {
-  @Input() title:string="微商客户端";
+  @Input() title: string= '客户端标题';
 
   constructor() { }
 
