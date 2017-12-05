@@ -16,6 +16,10 @@ export class SettleComponent implements OnInit {
     this.commodities = this.shoppingCartService.getCommodities();
   }
 
+  getTotalAmount(): number {
+    return this.shoppingCartService.getTotalAmount();
+  }
+
   onClickOrder(): void {
   }
 

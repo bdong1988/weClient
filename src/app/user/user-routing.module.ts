@@ -1,9 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { UserComponent } from './user.component';
+import { OrdersComponent } from './orders/orders.component';
+import { ReceiversComponent } from './receivers/receivers.component';
+
 
 const routes: Routes = [
-  {path: 'user', component: UserComponent}
+  {path: 'user', component: UserComponent},
+  {path: 'user/orders', component: OrdersComponent},
+  {path: 'user/receivers', component: ReceiversComponent}
 ];
 
 @NgModule({

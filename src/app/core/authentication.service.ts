@@ -20,9 +20,9 @@ export class AuthenticationService {
     return this.http.post<UserDetails>(this.authticationUrl, {
       'username': username,
       'password': password
-    }).map(data => this.getUserDetail(data));
+    })
+    .map( data => this.getUserDetail(data));
   }
-  
   getUserDetail(data: any): UserDetails {
     this._userDetail = new UserDetails();
     this._userDetail.name = data.data[0].UserName;

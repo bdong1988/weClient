@@ -12,8 +12,6 @@ import { UserModule } from './user/user.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ConfirmDialogComponent } from './shared/confirm-dialog/confirm-dialog.component';
 
-
-
 @NgModule({
   declarations: [
     AppComponent

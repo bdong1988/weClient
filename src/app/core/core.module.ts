@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { ProductService } from './product.service';
 import { ShoppingCartService } from './shopping-cart.service';
 import { AuthenticationService } from './authentication.service';
+import { UserProfileService } from './user-profile.service';
 
 import { SharedModule } from '../shared/shared.module';
 import { BottomNavBarComponent } from './bottom-nav-bar/bottom-nav-bar.component';
@@ -32,7 +33,8 @@ import { TopBarComponent } from './top-bar/top-bar.component';
   providers: [
     ProductService,
     ShoppingCartService,
-    AuthenticationService
+    AuthenticationService,
+    UserProfileService
   ]
 })
 export class CoreModule { }
