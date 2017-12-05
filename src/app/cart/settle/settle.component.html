@@ -1,4 +1,15 @@
 <div fxLayout="column" class="wrapper">
+  <div fxFlex="none">
+    <div>
+      <mat-card fxLayout="column" *ngIf="receiver">
+        <h4 fxFlex>收件人: {{receiver.name}}</h4>
+        <h4 fxFlex>电话：{{receiver.tel}}</h4>
+      </mat-card>
+      <div *ngIf="!receiver">
+        <h4 (click)="onClickSelectReceiver()">请选择收货人</h4>
+      </div>
+    </div>
+  </div>
   <div fxFlex="grow" #container fxLayout="column" class="commodities_wrapper">
     <div *ngFor="let commodity of commodities" fxFlex="nogrow" fxFlexAlign="center">
       <div fxLayout="row" fxLayoutAlign="space-between center" class="item-container">
@@ -9,7 +20,7 @@
             <br> {{commodity.description}}
           </p>
           <div fxFlex="nogrow" fxLayout="row" fxLayoutAlign="space-between center">
-            <h4 fxFlex="nogrow" >{{commodity.price | currency:'CNY':'symbol-narrow'}}</h4>
+            <h4 fxFlex="nogrow">{{commodity.price | currency:'CNY':'symbol-narrow'}}</h4>
             <h4 fxFlex="nogrow">&Chi;{{commodity.count}}</h4>
           </div>
         </div>

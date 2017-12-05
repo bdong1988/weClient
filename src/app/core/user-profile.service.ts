@@ -11,6 +11,7 @@ import { OrderReceiver } from '../shared/orderReceiver';
 @Injectable()
 export class UserProfileService {
   receivers: OrderReceiver[];
+  editReceiver: OrderReceiver;
   constructor(private http: HttpClient) { }
 
   getReceivers(page: number, pageSize: number): Observable<OrderReceiver[]> {
@@ -19,6 +20,16 @@ export class UserProfileService {
       .pipe(
         tap(data => this.receivers = data)
       );
+  }
+
+  setEditReceiver(rec: OrderReceiver): void {
+    this.editReceiver = rec;
+  }
+  getEditReceiver(): OrderReceiver {
+    return this.editReceiver;
+  }
+  saveEditReceiver(): void {
+    
   }
 
 }

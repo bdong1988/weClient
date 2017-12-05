@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Commodity } from '../shared/commodity';
+import { OrderReceiver } from '../shared/orderReceiver';
 
 
 @Injectable()
 export class ShoppingCartService {
   commodities: Commodity[] = [];
+  receiver: OrderReceiver;
   constructor(private http: HttpClient) { }
 
   addToCart(
@@ -83,6 +85,14 @@ export class ShoppingCartService {
     }
 
     return this.http.post(url,order);
+  }
+
+  setOrderReceiver(rec: OrderReceiver): void {
+    this.receiver = rec;
+  }
+
+  getOrderReceiver(): OrderReceiver{
+    return this.receiver;
   }
 
 }

@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { UserComponent } from './user.component';
 import { OrdersComponent } from './orders/orders.component';
 import { ReceiversComponent } from './receivers/receivers.component';
+import { EditReceiverComponent } from './edit-receiver/edit-receiver.component';
 
 
 const routes: Routes = [
@@ -15,6 +16,13 @@ const routes: Routes = [
     }, {
       path: 'receivers',
       component: ReceiversComponent
+    }, {
+      path: 'editreceiver',
+      component: EditReceiverComponent
+    }, {
+      path: '',
+      redirectTo: 'orders',
+      pathMatch: 'full'
     }]
   }
 ];

@@ -7,6 +7,7 @@ import { UserRoutingModule } from './user-routing.module';
 import { UserComponent } from './user.component';
 import { OrdersComponent } from './orders/orders.component';
 import { ReceiversComponent } from './receivers/receivers.component';
+import { EditReceiverComponent } from './edit-receiver/edit-receiver.component';
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import { ReceiversComponent } from './receivers/receivers.component';
   declarations: [
     UserComponent,
     OrdersComponent,
-    ReceiversComponent
+    ReceiversComponent,
+    EditReceiverComponent
   ]
 })
 export class UserModule { }

@@ -1,0 +1,12 @@
+<div class="wrapper" *ngIf="receiver" fxLayout="column" fxLayutAlign="start center">
+  <mat-form-field>
+    <input matInput type="text" placeholder="姓名" [(ngModel)]="receiver.name">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput type="text" placeholder="电话" [(ngModel)]="receiver.tel">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput type="text" placeholder="收货地址" [(ngModel)]="receiver.addr">
+  </mat-form-field>
+  <button mat-raised-button color="warn" (click)="onClickSave()">保存</button>
+</div>
