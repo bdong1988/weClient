@@ -1,5 +1,5 @@
 <div fxLayout="column" #container class="products_wrapper">
-  <div fxFlex fxFlexFill fxFlexAlign="center" *ngFor="let product of products" [routerLink]="['/browse/products', product.ID]">
+  <div fxFlex="initial" fxFlexAlign="center" *ngFor="let product of products" [routerLink]="['/browse/products', product.ID]">
     <div fxLayout="row" class="item-container">
       <img class="productImg" [src]="product.Picture1" [alt]="product.Title" fxFlex="50%">
       <div fxFlex fxLayout="column">
