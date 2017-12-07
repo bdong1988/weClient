@@ -1,16 +1,21 @@
-<div fxLayout="column" #container class="products_wrapper">
-  <div fxFlex="initial" fxFlexAlign="center" *ngFor="let product of products" [routerLink]="['/browse/products', product.ID]">
-    <div fxLayout="row" class="item-container">
-      <img class="productImg" [src]="product.Picture1" [alt]="product.Title" fxFlex="50%">
-      <div fxFlex fxLayout="column">
-        <p fxFlex>{{product.Title}}
-          <br> {{product.Description}}
-        </p>
-        <h4 fxFlex>{{product.Price | currency:'CNY':'symbol-narrow'}}</h4>
+<div class="container" fxLayout="column">
+  <div *ngIf="bLoading" class="progress-wrapper" fxFlex="none">
+    <app-progress message="读取商品"></app-progress>
+  </div>
+  <div fxFlex="nogrow" fxLayout="column" #container class="products_wrapper">
+    <div fxFlex="initial" fxFlexAlign="center" *ngFor="let product of products" [routerLink]="['/browse/products', product.ID]">
+      <div fxLayout="row" class="item-container">
+        <img class="productImg" [src]="product.Picture1" [alt]="product.Title" fxFlex="50%">
+        <div fxFlex fxLayout="column">
+          <p fxFlex>{{product.Title}}
+            <br> {{product.Description}}
+          </p>
+          <h4 fxFlex>{{product.Price | currency:'CNY':'symbol-narrow'}}</h4>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="app-back-to-top-wrapper">
-    <app-back-to-top [container]="container"></app-back-to-top>
+    <div class="app-back-to-top-wrapper">
+      <app-back-to-top [container]="container"></app-back-to-top>
+    </div>
   </div>
 </div>
