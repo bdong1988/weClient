@@ -19,15 +19,21 @@ export class ProductService {
   getAllProduct(page: number, pageSize: number): Observable<Product[]> {
 
     const params = new HttpParams()
-    .set('page', page.toString())
-    .set('pageSize', pageSize.toString());
+      .set('page', page.toString())
+      .set('pageSize', pageSize.toString());
 
     const mockUrl = '/assets/mocks/products.json';
-    return this.http.get<ProductsData>(this.productUrl,{params})
-        .map(data => {
-          this.productCache = data.data;
-          return this.productCache;
-        });
+    // return this.http.get<ProductsData>(this.productUrl, {params})
+    //     .map(data => {
+    //       this.productCache = data.data;
+    //       return this.productCache;
+    //     });
+
+    return this.http.get<Product[]>(mockUrl)
+      .map(data => {
+        this.productCache = data;
+        return this.productCache;
+      });
   }
 
   getProduct(id: number): Observable<Product> {
@@ -36,9 +42,9 @@ export class ProductService {
       return from(product);
     } else {
       const params = new HttpParams()
-      .set('ID', id.toString());
-      return this.http.get<ProductData>(this.productUrl, {params})
-        .map(data => {return data.data;});
+        .set('ID', id.toString());
+      return this.http.get<ProductData>(this.productUrl, { params })
+        .map(data => data.data);
     }
   }
 }
