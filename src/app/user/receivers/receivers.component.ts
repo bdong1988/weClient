@@ -37,14 +37,14 @@ export class ReceiversComponent implements OnInit {
 
   onClickReceiver(index: number): void {
     this.shoppingCartService.setOrderReceiver(this.receivers[index]);
-    this.router.navigate(['/cart/settle'])
+    this.router.navigate(['/cart/settle']);
   }
 
   onClickEditReceiver(index: number): void {
     this.userProfileService.setEditReceiver(this.receivers[index]);
     this.router.navigate(['/user/editreceiver']);
   }
-  
+
   onClickNewReciever(): void {
     this.userProfileService.setEditReceiver(new OrderReceiver());
     this.router.navigate(['/user/editreceiver']);

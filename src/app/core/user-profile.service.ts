@@ -4,6 +4,8 @@ import { Observable } from 'rxjs/Observable';
 import { from } from 'rxjs/observable/from';
 import { of } from 'rxjs/observable/of';
 import { tap } from 'rxjs/operators/tap';
+import { delay } from 'rxjs/operators/delay';
+import { timeout } from 'rxjs/operator/timeout';
 import 'rxjs/add/operator/map';
 
 import { OrderReceiver } from '../shared/orderReceiver';
@@ -18,7 +20,8 @@ export class UserProfileService {
     const mockUrl = '/assets/mocks/receivers.json';
     return this.http.get<OrderReceiver[]>(mockUrl)
       .pipe(
-        tap(data => this.receivers = data)
+        tap(data => this.receivers = data),
+        delay(5000)
       );
   }
 

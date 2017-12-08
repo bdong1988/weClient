@@ -8,9 +8,12 @@
         <h4 fxFlex>收件人: {{receiver.name}}</h4>
         <h4 fxFlex>电话：{{receiver.tel}}</h4>
       </mat-card>
-      <div *ngIf="!receiver">
-        <h4 (click)="onClickSelectReceiver()">请选择收货人</h4>
-      </div>
+      <mat-card *ngIf="!receiver">
+        <div fxLayout="row" fxLayoutAlign="space-between center">
+          <h4 fxFlex (click)="onClickSelectReceiver()">请选择收货人</h4>
+          <mat-icon fxFlex class="select-icon">keyboard_arrow_right</mat-icon>
+        </div>
+      </mat-card>
     </div>
   </div>
   <div fxFlex="grow" #container fxLayout="column" class="commodities_wrapper">

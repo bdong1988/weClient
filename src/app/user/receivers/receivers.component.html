@@ -1,6 +1,10 @@
 <div fxLayout="column" class="wrapper">
+  <div *ngIf="bLoading" class="progress-wrapper" fxFlex="none">
+    <app-progress message="读取收件人列表"></app-progress>
+  </div>
   <div fxFlex="grow" fxLayout="column" fxLayoutGap="10px" #container class="receiver-wrapper">
-    <mat-card fxFlex="noshrink" fxLayout="row" fxLayoutAlign="space-between end" *ngFor="let receiver of receivers; let i=index" (click)="onClickReceiver(i)">
+    <mat-card fxFlex="noshrink" fxLayout="row" fxLayoutAlign="space-between end" *ngFor="let receiver of receivers; let i=index"
+      (click)="onClickReceiver(i)">
       <div fxFlex fxLayout="column">
         <h4 fxFlex>{{receiver.name}}</h4>
         <h4 fxFlex>{{receiver.tel}}</h4>

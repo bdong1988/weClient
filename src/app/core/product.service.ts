@@ -3,6 +3,8 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { from } from 'rxjs/observable/from';
 import { of } from 'rxjs/observable/of';
+import { delay } from 'rxjs/operators/delay';
+import { timeout } from 'rxjs/operator/timeout';
 import 'rxjs/add/operator/map';
 
 import { Product } from '../shared/product';
@@ -30,10 +32,13 @@ export class ProductService {
     //     });
 
     return this.http.get<Product[]>(mockUrl)
-      .map(data => {
-        this.productCache = data;
-        return this.productCache;
-      });
+      .pipe(
+        delay(5000),
+        map(data => {
+          this.productCache = data;
+          return this.productCache;
+        })
+      );
   }
 
   getProduct(id: number): Observable<Product> {
@@ -44,7 +49,9 @@ export class ProductService {
       const params = new HttpParams()
         .set('ID', id.toString());
       return this.http.get<ProductData>(this.productUrl, { params })
-        .map(data => data.data);
+        .map(data => {
+          return data.data;
+        });
     }
   }
 }
