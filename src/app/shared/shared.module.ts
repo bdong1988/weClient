@@ -16,13 +16,14 @@ import {
   MatCheckboxModule} from '@angular/material';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDialogModule } from '@angular/material/dialog';
-import { MatProgressBarModule } from '@angular/material/progress-bar'
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { BackToTopComponent } from './back-to-top/back-to-top.component';
 import { ItemCountComponent } from './item-count/item-count.component';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 import { ProgressComponent } from './progress/progress.component';
+import { ProductComponent } from './product/product.component';
 
 @NgModule({
   imports: [
@@ -65,13 +66,15 @@ import { ProgressComponent } from './progress/progress.component';
     BackToTopComponent,
     ItemCountComponent,
     ConfirmDialogComponent,
-    ProgressComponent
+    ProgressComponent,
+    ProductComponent
   ],
   declarations: [
     BackToTopComponent,
     ItemCountComponent,
     ConfirmDialogComponent,
-    ProgressComponent
+    ProgressComponent,
+    ProductComponent
   ]
 })
 export class SharedModule {
