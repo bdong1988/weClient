@@ -1,3 +1,17 @@
-<p>
-  product-card works!
-</p>
+<div class="productContainer" *ngIf="product">
+    <div fxLayout="row wrap">
+      <img class="productImg" [src]="product.Picture1" [alt]="product.Title" fxFlex="50%">
+      <img class="productImg" [src]="product.Picture2" [alt]="product.Title" fxFlex="50%">
+      <img class="productImg" [src]="product.Picture3" [alt]="product.Title" fxFlex="50%">
+      <img class="productImg" [src]="product.Picture4" [alt]="product.Title" fxFlex="50%">
+    </div>
+    <div fxLayout="column">
+      <p fxFlex fxFlexFill>{{product.Title}}
+        <br> {{product.Description}}
+      </p>
+      <h4 fxFlex fxFlexFill>{{product.Price | currency:'CNY':'symbol-narrow'}}</h4>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="start">
+      <button mat-raised-button color="primary" (click)="onAddtoCartClick()">加入购物车</button>
+    </div>
+  </div>
