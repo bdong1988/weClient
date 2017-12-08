@@ -19,6 +19,6 @@
     </div>
   </div>
   <mat-toolbar fxFlex="none" fxLayout="row" fxLayoutAlign="space-between center">
-    <button mat-raised-button fxFlex="grow" color="warn" (click)="onClickNewReciever()">新建收货人</button>
+    <button mat-raised-button fxFlex="grow" color="warn" (click)="onClickNewReciever()" [disabled]="bLoading">新建收货人</button>
   </mat-toolbar>
 </div>

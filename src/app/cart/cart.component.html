@@ -25,7 +25,7 @@
   </div>
   <mat-toolbar fxFlex="none" fxLayout="row" fxLayoutAlign="space-between center">
     <p>合计：{{getTotalAmount() | currency:'CNY':'symbol-narrow'}}</p>
-    <button mat-button fxFlex="grow" color="warn" (click)="onRemoveClick()">删除</button>
+    <button mat-button fxFlex="grow" color="warn" (click)="onRemoveClick()" [disabled]="commodities.length==0">删除</button>
     <button mat-button fxFlex="grow" color="warn" (click)="onSettleClick()" [disabled]="commodities.length==0">去结算</button>
   </mat-toolbar>
 </div>
