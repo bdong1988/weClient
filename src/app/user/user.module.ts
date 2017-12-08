@@ -6,6 +6,7 @@ import { SharedModule } from '../shared/shared.module';
 import { UserRoutingModule } from './user-routing.module';
 import { UserComponent } from './user.component';
 import { OrdersComponent } from './orders/orders.component';
+import { OrderDetailComponent } from './order-detail/order-detail.component';
 import { ReceiversComponent } from './receivers/receivers.component';
 import { EditReceiverComponent } from './edit-receiver/edit-receiver.component';
 
@@ -18,6 +19,7 @@ import { EditReceiverComponent } from './edit-receiver/edit-receiver.component';
   declarations: [
     UserComponent,
     OrdersComponent,
+    OrderDetailComponent,
     ReceiversComponent,
     EditReceiverComponent
   ]
