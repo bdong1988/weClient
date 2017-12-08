@@ -11,7 +11,6 @@ import { UserProfileService } from './user-profile.service';
 
 import { SharedModule } from '../shared/shared.module';
 import { BottomNavBarComponent } from './bottom-nav-bar/bottom-nav-bar.component';
-import { TopBarComponent } from './top-bar/top-bar.component';
 
 
 @NgModule({
@@ -23,12 +22,10 @@ import { TopBarComponent } from './top-bar/top-bar.component';
     RouterModule
   ],
   exports: [
-    BottomNavBarComponent,
-    TopBarComponent
+    BottomNavBarComponent
   ],
   declarations: [
-    BottomNavBarComponent,
-    TopBarComponent
+    BottomNavBarComponent
   ],
   providers: [
     ProductService,

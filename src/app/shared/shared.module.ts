@@ -24,6 +24,7 @@ import { ItemCountComponent } from './item-count/item-count.component';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 import { ProgressComponent } from './progress/progress.component';
 import { ProductComponent } from './product/product.component';
+import { TopBarComponent } from './top-bar/top-bar.component';
 
 @NgModule({
   imports: [
@@ -67,14 +68,16 @@ import { ProductComponent } from './product/product.component';
     ItemCountComponent,
     ConfirmDialogComponent,
     ProgressComponent,
-    ProductComponent
+    ProductComponent,
+    TopBarComponent
   ],
   declarations: [
     BackToTopComponent,
     ItemCountComponent,
     ConfirmDialogComponent,
     ProgressComponent,
-    ProductComponent
+    ProductComponent,
+    TopBarComponent
   ]
 })
 export class SharedModule {

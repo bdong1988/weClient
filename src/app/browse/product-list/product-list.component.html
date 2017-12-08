@@ -1,4 +1,7 @@
 <div class="container" fxLayout="column">
+  <div fxFlex="none" class="mat-elevation-z4">
+    <app-top-bar title="商品列表"></app-top-bar>
+  </div>
   <div *ngIf="bLoading" class="progress-wrapper" fxFlex="none">
     <app-progress message="读取商品"></app-progress>
   </div>

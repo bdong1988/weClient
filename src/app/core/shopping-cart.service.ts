@@ -77,14 +77,14 @@ export class ShoppingCartService {
       'Orders': []
     };
 
-    for(let i = 0; i < this.commodities.length; i++){
+    for (let i = 0; i < this.commodities.length; i++) {
       order.Orders.push({
         'SaleProductID': this.commodities[i].id,
         'Amout': this.commodities[i].count
-      })
+      });
     }
 
-    return this.http.post(url,order);
+    return this.http.post(url, order);
   }
 
   setOrderReceiver(rec: OrderReceiver): void {
