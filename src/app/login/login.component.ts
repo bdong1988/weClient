@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
   }
 
   onClickCancel(): void {
-    this.router.navigate([this.redirectUrl]);
+    this.router.navigate(['']);
   }
 
   onClickLogIn(): void {
