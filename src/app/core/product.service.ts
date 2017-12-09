@@ -24,8 +24,6 @@ export class ProductService {
     // const params = new HttpParams()
     //   .set('page', page.toString())
     //   .set('pageSize', pageSize.toString());
-
-    const mockUrl = '/assets/mocks/products.json';
     // return this.http.get<ProductsData>(this.productUrl, {params})
     //     .map(data => {
     //       if (!data.success) {
@@ -34,7 +32,7 @@ export class ProductService {
     //       this.productCache = data.data;
     //       return this.productCache;
     //     });
-
+    const mockUrl = './assets/mocks/products.json';
     return this.http.get<Product[]>(mockUrl)
       .pipe(
         map(data => {
