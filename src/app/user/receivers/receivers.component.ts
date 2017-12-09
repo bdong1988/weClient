@@ -24,15 +24,14 @@ export class ReceiversComponent implements OnInit {
   getAllReceivers(): void {
     this.bLoading = true;
     this.userProfileService.getReceivers(1, -1)
-      .subscribe(
-        data => {
-          this.receivers = data;
-          this.bLoading = false;
-        },
-        err => {
-          this.bLoading = false;
-        }
-      );
+    .subscribe(
+      (data) => {
+        this.bLoading = false;
+        this.receivers = <OrderReceiver[]>data;
+      },
+      () => {
+        this.bLoading = false;
+      });
   }
 
   onClickReceiver(index: number): void {

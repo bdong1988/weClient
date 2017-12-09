@@ -3,6 +3,7 @@ import { MatDialog, MatDialogRef } from '@angular/material';
 import { Router } from '@angular/router';
 import { Commodity } from '../shared/commodity';
 import { ShoppingCartService } from '../core/shopping-cart.service';
+import { AuthenticationService } from '../core/authentication.service';
 import { ConfirmDialogComponent } from '../shared/confirm-dialog/confirm-dialog.component';
 import { Route } from '@angular/compiler/src/core';
 
@@ -18,10 +19,16 @@ export class CartComponent implements OnInit {
   constructor(
     private shoppingCartService: ShoppingCartService,
     private router: Router,
+    private auth: AuthenticationService,
     private dialog: MatDialog) {
   }
 
   ngOnInit() {
+    if (!this.auth.isAuthenticated()) {
+      this.auth.setRedirectUrl('cart');
+      this.router.navigate(['login']);
+      return;
+    }
     this.commodities = this.shoppingCartService.getCommodities();
   }
 

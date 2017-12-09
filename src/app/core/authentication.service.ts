@@ -9,24 +9,45 @@ import { UserDetails } from './user-details.model';
 import { tap } from 'rxjs/operators/tap';
 import { map } from 'rxjs/operator/map';
 
+import { ServerData } from '../shared/serverData';
+import { ErrorObservable } from 'rxjs/observable/ErrorObservable';
+
 @Injectable()
 export class AuthenticationService {
   readonly authticationUrl: string = '/mobile/api/login';
   private _isAuthenticated: boolean = false;
   private _userDetail: UserDetails;
+  private _redirectUrl: string;
   constructor(private http: HttpClient) { }
 
-  login(username: string, password: string): Observable<UserDetails> {
-    return this.http.post<UserDetails>(this.authticationUrl, {
+  setRedirectUrl(url: string): void {
+    this._redirectUrl = url;
+  }
+
+  getRedirectUrl(): string {
+    return this._redirectUrl;
+  }
+
+  login(username: string, password: string): Observable<UserDetails | ErrorObservable> {
+    return this.http.post<UserDetailData>(this.authticationUrl, {
       'username': username,
       'password': password
     })
-    .map( data => this.getUserDetail(data));
+    .map( data => {
+      if (!data.success) {
+        return Observable.throw('Internal server error');
+      }
+      this._userDetail = data.data[0];
+      this._isAuthenticated = true;
+      return this._userDetail;
+    });
   }
-  getUserDetail(data: any): UserDetails {
-    this._userDetail = new UserDetails();
-    this._userDetail.name = data.data[0].UserName;
-    this._userDetail.userType = data.data[0].UserTypeID;
-    return this._userDetail;
+
+  isAuthenticated(): boolean {
+    return this._isAuthenticated;
   }
+}
+
+class UserDetailData extends ServerData{
+  data: UserDetails[];
 }

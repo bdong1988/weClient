@@ -8,7 +8,7 @@ import { Product } from '../product';
 })
 export class ProductComponent implements OnInit {
   @Input() product: Product;
-  thumnailImg: string = '../../assets/img/product_cover.png';
+  thumnailImg: string = './assets/img/product_cover.png';
   constructor() { }
 
   ngOnInit() {

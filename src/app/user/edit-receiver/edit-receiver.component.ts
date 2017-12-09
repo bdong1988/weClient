@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { OrderReceiver } from '../../shared/orderReceiver';
 import { UserProfileService } from '../../core/user-profile.service';
 
@@ -9,7 +10,10 @@ import { UserProfileService } from '../../core/user-profile.service';
 })
 export class EditReceiverComponent implements OnInit {
   receiver: OrderReceiver;
-  constructor(private userProfileService: UserProfileService) { 
+  bSaving: boolean = false;
+  constructor(
+    private userProfileService: UserProfileService,
+    private router: Router) { 
     this.receiver = this.userProfileService.getEditReceiver();
   }
 
@@ -17,7 +21,17 @@ export class EditReceiverComponent implements OnInit {
   }
 
   onClickSave(): void {
-    this.userProfileService.saveEditReceiver();
+    this.bSaving = true;  
+    this.userProfileService.saveEditReceiver()
+    .subscribe(
+      () => {
+        this.bSaving = false;
+        this.router.navigate(['user/receivers']);
+      },
+      (error) => {
+        this.bSaving = false;
+        console.log(error);
+      });
   }
 
 }

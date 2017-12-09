@@ -11,6 +11,7 @@ import { Product } from '../shared/product';
 import { ServerData } from '../shared/serverData';
 import { tap } from 'rxjs/operators/tap';
 import { map } from 'rxjs/operators/map';
+import { ErrorObservable } from 'rxjs/observable/ErrorObservable';
 
 @Injectable()
 export class ProductService {
@@ -18,39 +19,44 @@ export class ProductService {
   private productCache: Product[];
 
   constructor(private http: HttpClient) { }
-  getAllProduct(page: number, pageSize: number): Observable<Product[]> {
+  getAllProduct(page: number, pageSize: number): Observable<Product[] | ErrorObservable> {
 
     const params = new HttpParams()
       .set('page', page.toString())
       .set('pageSize', pageSize.toString());
 
     const mockUrl = '/assets/mocks/products.json';
-    // return this.http.get<ProductsData>(this.productUrl, {params})
-    //     .map(data => {
-    //       this.productCache = data.data;
-    //       return this.productCache;
-    //     });
-
-    return this.http.get<Product[]>(mockUrl)
-      .pipe(
-        delay(5000),
-        map(data => {
-          this.productCache = data;
+    return this.http.get<ProductsData>(this.productUrl, {params})
+        .map(data => {
+          if (!data.success) {
+            return Observable.throw("读取商品列表失败");
+          }
+          this.productCache = data.data;
           return this.productCache;
-        })
-      );
+        });
+
+    // return this.http.get<Product[]>(mockUrl)
+    //   .pipe(
+    //     map(data => {
+    //       this.productCache = data;
+    //       return this.productCache;
+    //     })
+    //   );
   }
 
-  getProduct(id: number): Observable<Product> {
+  getProduct(id: number): Observable<Product | ErrorObservable> {
     if (this.productCache) {
       const product = this.productCache.filter(item => item.ID === id);
       return from(product);
     } else {
       const params = new HttpParams()
         .set('ID', id.toString());
-      return this.http.get<ProductData>(this.productUrl, { params })
+      return this.http.get<ProductsData>(this.productUrl, { params })
         .map(data => {
-          return data.data;
+          if (!data.success) {
+            return Observable.throw("读取商品详细信息失败");
+          }
+          return data.data[0];
         });
     }
   }
@@ -58,8 +64,4 @@ export class ProductService {
 
 class ProductsData extends ServerData {
   data: Product[];
-}
-
-class ProductData extends ServerData {
-  data: Product;
 }

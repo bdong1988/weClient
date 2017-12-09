@@ -1,4 +1,7 @@
 export class UserDetails {
-  name: string;
-  userType: number; 
+  CreateTime: string;
+  ID: number;
+  LastLoginTime: string; 
+  UserName: string;
+  UserTypeID: number;
 }

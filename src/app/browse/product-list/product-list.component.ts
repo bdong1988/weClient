@@ -25,14 +25,13 @@ export class ProductListComponent implements OnInit {
   getAllProduct(): void {
     this.bLoading = true;
     this.productService.getAllProduct(1, -1)
-      .subscribe(
-        data => {
-          this.products = data;
-          this.bLoading = false;
-        },
-        err => {
-          this.bLoading = false;
-        }
-      );
+    .subscribe(
+      (data) => {
+        this.bLoading = false;
+        this.products = <Product[]>data;
+      },
+      () => {
+        this.bLoading = false;
+      });
   }
 }

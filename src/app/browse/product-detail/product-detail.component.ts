@@ -16,7 +16,7 @@ import { ShoppingCartService } from '../../core/shopping-cart.service';
 })
 export class ProductDetailComponent implements OnInit {
   product: Product;
-
+  bLoading: boolean = false;
   constructor(
     private productService: ProductService,
     private shoppingCartService: ShoppingCartService,
@@ -30,10 +30,13 @@ export class ProductDetailComponent implements OnInit {
         this.productService.getProduct(Number(param.get('id'))))
     )
     .subscribe(
-      data => {
-        this.product = data;
-      }
-    );
+      (data) => {
+        this.bLoading = false;
+        this.product = <Product>data;
+      },
+      () => {
+        this.bLoading = false;
+      });
   }
 
   onAddtoCartClick(): void {
