@@ -11,6 +11,7 @@ import { map } from 'rxjs/operator/map';
 
 import { ServerData } from '../shared/serverData';
 import { ErrorObservable } from 'rxjs/observable/ErrorObservable';
+import { delay } from 'rxjs/operators/delay';
 
 @Injectable()
 export class AuthenticationService {
@@ -41,6 +42,11 @@ export class AuthenticationService {
       this._isAuthenticated = true;
       return this._userDetail;
     });
+    // this._userDetail = new UserDetails();
+    // this._userDetail.UserName = 'admin';
+    // this._userDetail.UserTypeID = 1;
+    // this._isAuthenticated = true;
+    // return of(this._userDetail).pipe(delay(2000));
   }
 
   isAuthenticated(): boolean {

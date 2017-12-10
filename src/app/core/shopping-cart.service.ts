@@ -2,6 +2,12 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Commodity } from '../shared/commodity';
 import { OrderReceiver } from '../shared/orderReceiver';
+import { ProductCount } from '../shared/productCount';
+import { ServerData } from '../shared/serverData';
+import { Observable } from 'rxjs/Observable';
+import { ErrorObservable } from 'rxjs/observable/ErrorObservable';
+import { map } from 'rxjs/operators/map';
+import { forEach } from '@angular/router/src/utils/collection';
 
 
 @Injectable()
@@ -33,7 +39,9 @@ export class ShoppingCartService {
         img: product_img,
         price: product_price,
         count: 1,
-        selected: true
+        selected: true,
+        bLack: false,
+        currentAmount: 0
       };
       this.commodities.push(commodity);
     }
@@ -68,23 +76,41 @@ export class ShoppingCartService {
     this.commodities = [];
   }
 
-  orderCart(name: string, addr: string, tel: string){
-    const url = '/mobile/api/ordres';
+  orderCart(): Observable<ProductCount[] | ErrorObservable>{
+    const url = '/mobile/api/orders';
     let order = {
-      'ReceiverName': name,
-      'ReceiverAddr': addr,
-      'ReceiverTel': tel,
+      'ReceiverName': this.receiver.Name,
+      'ReceiverAddr': this.receiver.Address,
+      'ReceiverTel': this.receiver.Tel,
       'Orders': []
     };
 
     for (let i = 0; i < this.commodities.length; i++) {
       order.Orders.push({
         'SaleProductID': this.commodities[i].id,
-        'Amout': this.commodities[i].count
+        'Amount': this.commodities[i].count
       });
     }
 
-    return this.http.post(url, order);
+    return this.http.post<ProductCountData>(url, order)
+      .pipe(
+        map(
+          data => {
+            return data.data;
+          }
+        )
+      )
+  }
+
+  updateCommoditiesCounts(counts: ProductCount[]): void {
+    for (let i = 0; i < counts.length; i++) {
+      for (let j = 0; j < this.commodities.length; j++) {
+        if (counts[i].SaleProductID === this.commodities[j].id) {
+          this.commodities[j].currentAmount = counts[i].CurrentAmount;
+          this.commodities[j].bLack = true;
+        }
+      }
+    }
   }
 
   setOrderReceiver(rec: OrderReceiver): void {
@@ -95,6 +121,10 @@ export class ShoppingCartService {
     return this.receiver;
   }
 
+}
+
+class ProductCountData extends ServerData{
+  data: ProductCount[];
 }
 
 

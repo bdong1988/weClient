@@ -21,25 +21,25 @@ export class ProductService {
   constructor(private http: HttpClient) { }
   getAllProduct(page: number, pageSize: number): Observable<Product[] | ErrorObservable> {
 
-    // const params = new HttpParams()
-    //   .set('page', page.toString())
-    //   .set('pageSize', pageSize.toString());
-    // return this.http.get<ProductsData>(this.productUrl, {params})
-    //     .map(data => {
-    //       if (!data.success) {
-    //         return Observable.throw("读取商品列表失败");
-    //       }
-    //       this.productCache = data.data;
-    //       return this.productCache;
-    //     });
-    const mockUrl = './assets/mocks/products.json';
-    return this.http.get<Product[]>(mockUrl)
-      .pipe(
-        map(data => {
-          this.productCache = data;
+    const params = new HttpParams()
+      .set('page', page.toString())
+      .set('pageSize', pageSize.toString());
+    return this.http.get<ProductsData>(this.productUrl, {params})
+        .map(data => {
+          if (!data.success) {
+            return Observable.throw("读取商品列表失败");
+          }
+          this.productCache = data.data;
           return this.productCache;
-        })
-      );
+        });
+    // const mockUrl = './assets/mocks/products.json';
+    // return this.http.get<Product[]>(mockUrl)
+    //   .pipe(
+    //     map(data => {
+    //       this.productCache = data;
+    //       return this.productCache;
+    //     })
+    //   );
   }
 
   getProduct(id: number): Observable<Product | ErrorObservable> {

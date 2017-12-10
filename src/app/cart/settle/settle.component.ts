@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Commodity } from '../../shared/commodity';
 import { ShoppingCartService } from '../../core/shopping-cart.service';
 import { OrderReceiver } from '../../shared/orderReceiver';
+import { ProductCount } from '../../shared/productCount';
 
 @Component({
   selector: 'app-settle',
@@ -12,6 +13,8 @@ import { OrderReceiver } from '../../shared/orderReceiver';
 export class SettleComponent implements OnInit {
   commodities : Commodity[];
   receiver: OrderReceiver;
+  hasError: boolean = false;
+  bLoading: boolean = false;
   constructor(
     private router: Router,
     private shoppingCartService : ShoppingCartService) { }
@@ -21,16 +24,34 @@ export class SettleComponent implements OnInit {
     this.receiver = this.shoppingCartService.getOrderReceiver();
   }
 
+  isOrderDisabled(): boolean {
+    return !this.shoppingCartService.getOrderReceiver()
+  }
+
   getTotalAmount(): number {
     return this.shoppingCartService.getTotalAmount();
   }
 
   onClickSelectReceiver(): void {
-    this.router.navigate(['/user/receivers']);
+    this.router.navigate(['user/receivers']);
   }
 
   onClickOrder(): void {
-
+    this.shoppingCartService.orderCart()
+      .subscribe(
+        data => {
+          this.bLoading = false;
+          let countsData = <ProductCount[]>data;
+          if (countsData.length > 0) {
+            this.shoppingCartService.updateCommoditiesCounts(countsData);
+            this.router.navigate(['cart']);
+          }else{
+            this.router.navigate(['user/orders']);
+          }
+        },
+        error => {
+        }
+      );
   }
 
 }

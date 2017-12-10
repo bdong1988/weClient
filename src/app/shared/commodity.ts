@@ -6,4 +6,6 @@ export class Commodity {
   price: number;
   count: number;
   selected: boolean;
+  bLack: boolean = false;
+  currentAmount: number;
 }

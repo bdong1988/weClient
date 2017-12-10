@@ -39,7 +39,7 @@ export class UserProfileService {
         this.receivers = data.data;
         return this.receivers;
       })
-      )
+      );
   }
 
   setEditReceiver(rec: OrderReceiver): void {
@@ -61,21 +61,24 @@ export class UserProfileService {
   }
 
   getAllOrders(): Observable<Order[] | ErrorObservable> {
-    // const params = new HttpParams()
-    //   .set('page', '1')
-    //   .set('pageSize', '-1');
-    // return this.http.get<OrderData>(this.orderUrl, {params})
-    //   .pipe(
-    //     map( data => {
-    //       if (!data.success) {
-    //         return Observable.throw("读取订单信息失败");
-    //       }
-    //       return data.data;
-    //     })
-    //   );
+    const params = new HttpParams()
+      .set('page', '1')
+      .set('pageSize', '-1');
+    return this.http.get<OrderData>(this.orderUrl, {params})
+      .pipe(
+        map( data => {
+          if (!data.success) {
+            return Observable.throw("读取订单信息失败");
+          }
+          return data.data;
+        })
+      );
 
-    const mockUrl = './assets/mocks/orders.json';
-    return this.http.get<Order[]>(mockUrl);
+    // const mockUrl = './assets/mocks/orders.json';
+    // return this.http.get<Order[]>(mockUrl)
+    //   .pipe(
+    //     delay(2000)
+    //   )
   }
 }
 

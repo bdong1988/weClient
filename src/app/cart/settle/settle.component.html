@@ -3,14 +3,14 @@
     <app-top-bar title="确认订单"></app-top-bar>
   </div>
   <div fxFlex="none">
-    <div>
+    <div (click)="onClickSelectReceiver()">
       <mat-card fxLayout="column" *ngIf="receiver">
-        <h4 fxFlex>收件人: {{receiver.name}}</h4>
-        <h4 fxFlex>电话：{{receiver.tel}}</h4>
+        <h4 fxFlex>收件人: {{receiver.Name}}</h4>
+        <h4 fxFlex>电话：{{receiver.Tel}}</h4>
       </mat-card>
       <mat-card *ngIf="!receiver">
         <div fxLayout="row" fxLayoutAlign="space-between center">
-          <h4 fxFlex (click)="onClickSelectReceiver()">请选择收货人</h4>
+          <h4 fxFlex>请选择收货人</h4>
           <mat-icon fxFlex class="select-icon">keyboard_arrow_right</mat-icon>
         </div>
       </mat-card>
@@ -38,6 +38,6 @@
   </div>
   <mat-toolbar fxFlex="none" fxLayout="row" fxLayoutAlign="space-between center">
     <p>实付款：{{getTotalAmount() | currency:'CNY':'symbol-narrow'}}</p>
-    <button mat-raised-button fxFelxFill color="warn" (click)="onClickOrder()">立即下单</button>
+    <button mat-raised-button fxFelxFill color="warn" (click)="onClickOrder()" [disabled]="isOrderDisabled()">立即下单</button>
   </mat-toolbar>
 </div>

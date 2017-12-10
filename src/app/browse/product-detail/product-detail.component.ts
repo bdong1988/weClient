@@ -41,7 +41,7 @@ export class ProductDetailComponent implements OnInit {
 
   onAddtoCartClick(): void {
     this.shoppingCartService.addToCart(
-      this.product.ProductID,
+      this.product.ID,
       this.product.Title,
       this.product.Description,
       this.product.Picture1,

@@ -16,6 +16,9 @@
             <h4 fxFlex="nogrow">{{commodity.price | currency:'CNY':'symbol-narrow'}}</h4>
             <app-item-count fxFlex="nogrow" [(count)]="commodity.count"></app-item-count>
           </div>
+          <div fxFlex="nogrow" *ngIf="commodity.bLack">
+            <h4 class="warn-message">产品剩余数量：{{commodity.currentAmount}}</h4>
+          </div>
         </div>
       </div>
     </div>
