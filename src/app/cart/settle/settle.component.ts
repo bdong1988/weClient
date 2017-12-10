@@ -37,10 +37,10 @@ export class SettleComponent implements OnInit {
   }
 
   onClickOrder(): void {
+    this.bLoading = true;
     this.shoppingCartService.orderCart()
       .subscribe(
         data => {
-          this.bLoading = false;
           let countsData = <ProductCount[]>data;
           if (countsData.length > 0) {
             this.shoppingCartService.updateCommoditiesCounts(countsData);
@@ -48,8 +48,10 @@ export class SettleComponent implements OnInit {
           }else{
             this.router.navigate(['user/orders']);
           }
+          this.bLoading = false;
         },
         error => {
+          this.bLoading = false;
         }
       );
   }
